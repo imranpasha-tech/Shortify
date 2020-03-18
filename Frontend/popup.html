@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+    <div class="modal_header">
+        <h1 class="logo">
+            <span class="version_number"><Strong>Shortify</Strong> (0.0.1)</span>
+        </h1>
+    </div>
+
+    <div class="modal_content">
+        <div class="group">
+            <div class="original">
+                <label for="original"><p>Original URL</p></span></label>
+                <input type="text" value="" id="originalUrl" class="originalUrl">
+                <button type="button" id="create">create</button>
+            </div>
+
+            <div class="new">
+                <label for="new"><p>New URL</p></label>
+                <input type="text" value="" id="newUrl" class="newUrl" placeholder="Click on create">
+                <button type="submit" id="copy">copy</button>
+            </div>
+        </div>
+    </div>
+    <script defer src="popup.js"></script>
+</body>
+
+</html>

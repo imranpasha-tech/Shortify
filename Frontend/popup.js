@@ -22,7 +22,7 @@ copyElement.addEventListener('click', function(event) {
         var msg = successful ? 'successful' : 'unsuccessful';
           if(msg === "successful") {
             copyElement.classList.add('copied');
-            copyElement.innerHTML = "copied";
+            copyElement.innerHTML = "Copied";
           }     
       } catch(err) {
         alert('Oops, unable to copy');

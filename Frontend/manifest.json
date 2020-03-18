@@ -1,14 +1,19 @@
 {
     "name": "Shortify",
     "version": "0.0.1",
-    "description": "A tiny Url extension",
+    "description": "A URL shortening service",
     "permissions": ["tabs", "storage", "identity"],
     "background": {
       "scripts": ["background.js"],
       "persistent": false
     },
     "browser_action": {
-        "default_popup" : "popup.html"
+        "default_popup" : "popup.html",
+        "browser_action": {
+            "default_icon": {                  
+                "16": "images/icon1.jpg"
+            }
+        }
     },
     "icons" : {
         "128" : "./images/logo.png"

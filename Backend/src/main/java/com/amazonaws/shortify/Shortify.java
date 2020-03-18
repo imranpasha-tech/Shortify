@@ -1,7 +1,5 @@
 package com.amazonaws.shortify;
 
-import java.util.Date;
-
 import org.joda.time.DateTime;
 import org.joda.time.Instant;
 

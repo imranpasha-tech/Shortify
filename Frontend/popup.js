@@ -6,8 +6,6 @@ chrome.storage.local.get(['originalUrl'], function(result) {
     originalUrl.setAttribute('value', result.originalUrl);
 });
 
-
-
 //For copying the new url on button click.
 var copyElement = document.getElementById('copy');
 copyElement.addEventListener('click', function(event) {
@@ -36,9 +34,44 @@ var createElement = document.querySelector('#create');
 createElement.addEventListener('click', function(event) {
     document.getElementsByClassName('new')[0].setAttribute("style", "display:block;");
     document.getElementById('newUrl').value = "creating...";
+    const longUrl = document.getElementById('originalUrl').value;
+    console.log("longUrl 1:", longUrl);
+    shortify(longUrl);
     //document.querySelector('#newUrl').value = "creating...";
-    setTimeout(delayUrl, 2000);  
+    //setTimeout(delayUrl, 2000);  
 });
+
+/**
+ * A call to backend to create short url on clicking create
+ */
+function shortify(longUrl) {
+  const url = "https://lig4gyvvac.execute-api.ap-south-1.amazonaws.com/Shortify_v001/api";
+  const data = {
+    originalUrl: longUrl
+  }
+  const otherParams = {
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json',  // This is very important othewise cors error will occur.
+  },
+    method: "POST"
+  }
+
+  fetch(url, otherParams)
+    .then(response => {
+      if(!response.ok) {
+        throw Error(response.statusText);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log(data);
+      document.getElementById('newUrl').value = data.shortenedUrl;
+    })
+    .catch(err => {
+      console.log('Looks like there was a problem: \n', err);
+    })
+}
 
 function delayUrl() {
   console.log("delayUrl called");

@@ -31,6 +31,8 @@ function activateURL(activeInfo) {
     });
 }
 
+
+
 function createURL(tab) {
     console.log("onCreate Callback:", tab);
     chrome.tabs.onUpdated.addListener(updateURL);

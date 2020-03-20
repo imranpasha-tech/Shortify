@@ -35,10 +35,26 @@ copyElement.addEventListener('click', function(event) {
 var createElement = document.querySelector('#create');
 createElement.addEventListener('click', function(event) {
     document.getElementsByClassName('new')[0].setAttribute("style", "display:block;");
-    document.getElementById('newUrl').value = "creating...";
     const longUrl = document.getElementById('originalUrl').value;
+    document.getElementById('newUrl').value = "creating...";
     console.log("longUrl 1:", longUrl);
-    shortify(longUrl);
+    let storageValue;
+
+    chrome.storage.local.get(longUrl, function(result) {
+      console.log('Value currently is ' + result[longUrl]);
+      storageValue = result[longUrl];
+
+      if(storageValue == undefined) {
+        console.log(storageValue == null);
+        shortify(longUrl);
+      } else {
+        document.getElementById('newUrl').value = storageValue;
+        document.querySelector("#copy").setAttribute("style", "display:inline;");
+        copyElement.dispatchEvent(new Event('click'));
+      }
+    });
+
+  
 });
 
 /**
@@ -69,6 +85,12 @@ function shortify(longUrl) {
       document.getElementById('newUrl').value = data.shortenedUrl;
       document.querySelector("#copy").setAttribute("style", "display:inline;");
       copyElement.dispatchEvent(new Event('click'));
+      var obj = {};
+      obj[longUrl] = data.shortenedUrl;
+      chrome.storage.local.set(obj, function() {
+        console.log('url is set to ' + data.shortenedUrl);
+      });
+
     })
     .catch(err => {
       console.log('Looks like there was a problem: \n', err);

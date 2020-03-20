@@ -55,7 +55,7 @@ public class GetLongUrl implements RequestHandler<Output, Input> {
 		
 		logger.log("\nGSI results: " + result);
 		
-		throw new ResponseNotFound("Invalid address");
+		throw new ResponseNotFound("<html><h1>404 Not Found</h1></html>");
 		
 	}
 	

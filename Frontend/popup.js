@@ -9,23 +9,25 @@ chrome.storage.local.get(['originalUrl'], function(result) {
 //For copying the new url on button click.
 var copyElement = document.getElementById('copy');
 copyElement.addEventListener('click', function(event) {
-    let customUrlLink = document.querySelector('.newUrl');
-    let range = document.createRange();
-    range.selectNode(customUrlLink);
-    window.getSelection().addRange(range);
+  console.log("copy event invoked");
+     var input  = document.getElementById("newUrl");
+     event.preventDefault();
+     input.select();
+     document.execCommand("copy");
 
-    try {
-        // Now that we've selected the anchor text, execute the copy command
-        var successful = document.execCommand('copy');
-        var msg = successful ? 'successful' : 'unsuccessful';
-          if(msg === "successful") {
-            copyElement.classList.add('copied');
-            copyElement.innerHTML = "Copied";
-          }     
-      } catch(err) {
-        alert('Oops, unable to copy');
-      }
-});
+     try {
+       // Now that we've selected the anchor text, execute the copy command
+       var successful = document.execCommand('copy',true);
+       var msg = successful ? 'successful' : 'unsuccessful';
+         if(msg === "successful") {
+           copyElement.classList.add('copied');
+           copyElement.innerHTML = "Copied";
+         }     
+     } catch(err) {
+       alert('Oops, unable to copy');
+     }   
+}
+);
 
 /**
  *  polpulate input value on clicking create button.
@@ -37,8 +39,6 @@ createElement.addEventListener('click', function(event) {
     const longUrl = document.getElementById('originalUrl').value;
     console.log("longUrl 1:", longUrl);
     shortify(longUrl);
-    //document.querySelector('#newUrl').value = "creating...";
-    //setTimeout(delayUrl, 2000);  
 });
 
 /**
@@ -67,23 +67,32 @@ function shortify(longUrl) {
     .then(data => {
       console.log(data);
       document.getElementById('newUrl').value = data.shortenedUrl;
+      document.querySelector("#copy").setAttribute("style", "display:inline;");
+      copyElement.dispatchEvent(new Event('click'));
     })
     .catch(err => {
       console.log('Looks like there was a problem: \n', err);
     })
 }
 
-function delayUrl() {
-  console.log("delayUrl called");
-  // fetch('https://jsonplaceholder.typicode.com/todos/1')
-  //   .then(response => response.json())
-  //   .then(json => document.getElementById('newUrl').value = json.userId);
+var feedback = document.querySelector('#feedback');
+feedback.addEventListener('click', function(event) {
+  console.log("Feedback event called");
+  const footer = document.querySelector(".footer");
+  footer.setAttribute("style", "display:none;");
+  const rating = document.querySelector(".rating");
+  rating.setAttribute("style", "display:block");
+  rating.classList.add('footer');
+});
 
-  //let newUrl = document.getElementById('newUrl');
-  chrome.storage.local.get(['shortifyUrl'], function(result) {
-    console.log('shortifyUrl value from storage is: ' + result.shortifyUrl);
-    //newUrl.setAttribute('value', result.shortifyUrl); //why setAttribute is not replaced old value?
-    document.getElementById('newUrl').value = result.shortifyUrl;
-    });
-  document.querySelector("#copy").setAttribute("style", "display:inline;");
-}
+var website = document.querySelector("#website");
+website.addEventListener('click', function(event) {
+  console.log("Website event called");
+  const footer = document.querySelector(".footer");
+  footer.setAttribute("style", "display:none;");
+  const website = document.querySelector(".website");
+  website.setAttribute("style", "display:block");
+  website.classList.add('footer');
+})
+
+

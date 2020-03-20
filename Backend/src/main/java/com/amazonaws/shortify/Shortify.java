@@ -26,27 +26,39 @@ public class Shortify implements RequestHandler<Input, Output> {
 		logger.log("\n----------------------Adding new Url to database------------------------");
 		logger.log("\nURL details: " + input.getOriginalUrl() + "\n" );
 		
-		UrlItem item =  new UrlItem();
-		item.setOriginalUrl(input.getOriginalUrl());
 		
 		DynamoDBMapper mapper = new DynamoDBMapper(dbinstance);
-		mapper.save(item);
+		UrlItem checkItem = mapper.load(UrlItem.class, input.getOriginalUrl());
+		Output result = new Output();
 		
-		String base62Id = encodeHex(item.getId());
-		String shortUrl = shortifyUrl + base62Id;
+		if(checkItem == null) {
+			UrlItem item =  new UrlItem();
+			item.setOriginalUrl(input.getOriginalUrl());
+			
+			
+			mapper.save(item);
+			
+			String base62Id = encodeHex(item.getId());
+			String shortUrl = shortifyUrl + base62Id;
+			
+			/**
+			 * To-do: Need to find a way to make this consistent and atomic?
+			 */
+			item.setBase62Id(base62Id);
+			item.setCreationDate(new Instant().getMillis());
+			item.setExpirationDate(new DateTime().plusYears(5).getMillis());
+			mapper.save(item);
+			
+			System.out.println("Shortified url: " + shortUrl);
+			
+			result.setShortenedUrl(shortifyUrl + item.getBase62Id());
+			return result;
+		} else {
+			 logger.log("Item already exists in database: "+ checkItem.toString());
+			 result.setShortenedUrl(shortifyUrl + checkItem.getBase62Id());
+			 return result;
+		}
 		
-		/**
-		 * To-do: Need to find a way to make this consistent and atomic?
-		 */
-		item.setBase62Id(base62Id);
-		item.setCreationDate(new Instant().getMillis());
-		item.setExpirationDate(new DateTime().plusYears(5).getMillis());
-		mapper.save(item);
-		
-		System.out.println("Shortified url: " + shortUrl);
-		Output o = new Output();
-		o.setShortenedUrl(shortifyUrl + item.getBase62Id());
-		return o;
 	}
 	
 	/**

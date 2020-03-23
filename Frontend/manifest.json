@@ -11,12 +11,16 @@
         "default_popup" : "popup.html",
         "browser_action": {
             "default_icon": {                  
-                "16": "images/icon1.jpg"
+                "16": "images/shortify.png",
+                "32": "images/shortify.png",
+                "64": "images/shortify.png",
+                "128": "images/shortify.png",
+                "48": "images/shortify.png"
             }
         }
     },
     "icons" : {
-        "128" : "./images/logo.png"
+        "128" : "./images/shortify.png"
     },
     "manifest_version": 2
 }

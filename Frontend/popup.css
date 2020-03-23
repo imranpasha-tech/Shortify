@@ -2,6 +2,7 @@
     align-items: center;
     border-bottom: 0.5px solid #dadada;
     margin-bottom: 8px;
+    background-color: #3d4045;
 }
 
 div {
@@ -18,7 +19,7 @@ div {
 }
 
 .logo h1 {
-    padding: 10px;
+    padding: 07px;
 }
 
 h1 {
@@ -26,11 +27,12 @@ h1 {
     font-size: 22px;
     font-weight: 400;
     margin: 0;
+    color:white;
 }
 
 .version_number {
-    color: #444;
-    font-size: 18px;
+    color: white;
+    font-size: 20px;
 }
 
 body {
@@ -48,14 +50,18 @@ input, button{
     margin: 5px 5px 5px 5px;
     border-radius: 5px;
 }
+input[type=text]:focus{
+    outline: 2px solid #4db538;
+}
+
 button {
     width : 60px;
-    font-family: 'Segoe UI';
+    font-family: "open sans",sans-serif;
     padding: 3px 10px;
     font-size: 12px;
     line-height: 20px;
     cursor : pointer;
-    font-weight: 600;
+    font-weight: normal;
 }
 
 .modal_content {
@@ -65,15 +71,16 @@ button {
 
 p {
     margin: 0px;
-    font-family: 'Segoe UI';
+    font-family: "open sans",sans-serif;
     font-weight: 500;
     line-height: 20px;
 }
 
 .copied {
-    color:#fdfefd;
-    background-color:#15af50;
+    color:white;
+    background-color:#4db538;
     font-size: 13px;
+    font-family: "open sans",sans-serif;
 }
 
 .new {
@@ -104,8 +111,61 @@ a:active, a:hover {
     color:green;
 }
 
+a:visited {
+    color:black;
+}
+
+::selection {
+    background: #4db538;
+    color:white;
+  }
+
 .rating, .website{
     display: none;
     text-align: center;
     font-weight: 600;
 }
+
+span {
+    border:1px solid black;
+    padding:2px 4px;
+    border-radius: 2px;
+    margin:5px !important;
+  }
+  
+  div.rank {
+      margin: 3px;
+      padding: 0;
+      list-style: none;
+  }
+  
+  div.rank > span {
+      position: relative;
+      margin: 0;
+      height: 30px;
+      background: #ffffff;
+      transition: background-color 300ms;
+  }
+  
+  div.rank:hover > span {
+      background-color: grey;
+      
+  }
+  
+  div.rank > span + span {
+      margin-top: 10px;
+  }
+  
+  div.rank > span:hover ~ span {
+      background: #ffffff;
+  }
+  
+  div.rank > span + span:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: -10px;
+      left: 0;
+      right: 0;
+      height: 10px;
+  }

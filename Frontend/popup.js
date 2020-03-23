@@ -117,4 +117,11 @@ website.addEventListener('click', function(event) {
   website.classList.add('footer');
 })
 
+var ratings = document.querySelectorAll("span");
 
+ratings.forEach(rating => {
+    rating.addEventListener('click', function(event) {
+    console.log(rating.innerHTML);
+    //backend call to store rating.
+  });
+})

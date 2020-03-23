@@ -8,7 +8,7 @@
 <body>
     <div class="modal_header">
         <div class="logo">
-            <img src="./images/logo.png" height="40" width="40"/>
+            <img src="./images/shortify-green.jpg" height="40" width="40"/>
             <h1 class="version_number"><Strong>Shortify</Strong> (0.0.1)</h1>
         </div>
     </div>
@@ -16,13 +16,13 @@
     <div class="modal_content">
         <div class="group">
             <div class="original">
-                <label for="original"><p>Original URL</p></span></label>
+                <label for="originalUrl"><p>Original URL</p></span></label>
                 <input type="text" value="" id="originalUrl" class="originalUrl">
                 <button type="button" id="create">Create</button>
             </div>
 
             <div class="new">
-                <label for="new"><p>New URL</p></label>
+                <label for="newUrl"><p>New URL</p></label>
                 <input type="text" value="" id="newUrl" class="newUrl" placeholder="Click on create">
                 <button type="submit" id="copy">Copy</button>
             </div>
@@ -35,8 +35,16 @@
             <a href="https://github.com/imranpasha-tech/Shortify" target="_blank" id="github">Github</a>
             <a href="#" id="feedback">Feedback</a>
         </div>
-        <div class="rating">Thanks for the feedback</div>
-        <div class="website">Website will be created depending on feedback count. So give feedback please.</div>
+        <div class="rating">
+            <div class="rank">
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+            </div>
+        </div>
+        <div class="website">Website will be created based on feedback count. So give feedback please.</div>
     </div>
 
     <script defer src="popup.js"></script>

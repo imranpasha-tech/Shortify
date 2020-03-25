@@ -1,9 +1,9 @@
 'use strict';
 
 let originalUrl = document.getElementById("originalUrl");
-chrome.storage.local.get(['originalUrl'], function(result) {
-    console.log('Url value from storage is: ' + result.originalUrl);
-    originalUrl.setAttribute('value', result.originalUrl);
+chrome.tabs.query({ active: true, currentWindow: true },(tabs) => {
+  var currentTab = tabs[0].url;
+  originalUrl.setAttribute('value', currentTab);
 });
 
 //For copying the new url on button click.
@@ -61,7 +61,7 @@ createElement.addEventListener('click', function(event) {
  * A call to backend to create short url on clicking create
  */
 function shortify(longUrl) {
-  const url = "https://lig4gyvvac.execute-api.ap-south-1.amazonaws.com/Shortify_v001/api";
+  const url = "https://mhqj1s7du0.execute-api.ap-south-1.amazonaws.com/Prod/createapi";
   const data = {
     originalUrl: longUrl
   }

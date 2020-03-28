@@ -1,6 +1,8 @@
 # Shortify
 A browser extension for URL shortening service deployed using AWS web services.
 
-![Screenshot](shortify.JPG)
+## Screenshots
 
-![Alt text](./shortify.JPG?raw=true "shortify")
+![Screenshot](./images/screenshot1.JPG =100x200)
+
+![Alt text](./images/screenshot2.JPG?raw=true "Shortify-created")

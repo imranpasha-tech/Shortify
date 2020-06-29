@@ -1,5 +1,5 @@
 # Shortify
-A browser extension for URL shortening service deployed using AWS.
+A Chrome and Firefox browser extension for URL shortening service deployed on AWS.
 
 ## Screenshots
 

@@ -22,9 +22,10 @@ Therefore, loading this service as an extension the end user can do the same wor
      CSS
 
 ## Architecture and flow: 
- ### Flow-one
+ ### Flow-one (Creating a short URL)
    ![architecture-flow-one](arch-flow-one.svg)
-
+ ### Flow-two (Fetching the original URL using short URL)
+    ![architecure-flow-two](arch-flow-two.svg)
 ## Screenshots
 
 <p align="center"> 

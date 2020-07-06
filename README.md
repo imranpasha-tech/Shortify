@@ -18,8 +18,7 @@ Therefore, loading this service as an extension the end user can do the same wor
     Languages: 
      JavaScript
      Java
-     HTML
-     CSS
+     Others: HTML, CSS
 
 ## Architecture and flow: 
  ### Flow-one (Creating a short URL)

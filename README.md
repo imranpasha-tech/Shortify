@@ -26,8 +26,9 @@ Therefore, loading this service as an extension the end user can do the same wor
    ![architecture-flow-one](arch-flow-one.svg)
  ### Flow-two (Fetching the original URL using short URL)
    ![architecture-flow-two](arch-flow-two.svg)
-## Screenshots
 
+
+## Screenshots
 <p align="center"> 
     <img src="screenshot1.JPG" height="300" width="500"/>
 </p>

@@ -37,3 +37,14 @@ Therefore, loading this service as an extension the end user can do the same wor
 <p align="center"> 
     <img src="screenshot2.JPG" height="300" width="500"/>
 </p>
+
+## How to install
+    1. Clone the project
+    2. Open chrome
+    3. Type chrome://extensions/ in address bar
+    4. Enable developer mode on the top right corner
+    5. Click on Load unpacked
+    6. Navigate to cloned project location: Frontend
+    7. Load package
+    8. Shorify extension is now added to browser
+    

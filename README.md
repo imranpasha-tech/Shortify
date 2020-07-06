@@ -7,13 +7,22 @@ It is intuitive to make this service via extension as end user do not need to mo
 Therefore, loading this service as an extension the end user can do the same work on the same webpage with just one click.
 
 ## Tech Stack
-    This application is developed with serverless AWS tech stack
+    This application is developed with serverless AWS tech stack: 
+
     1. AWS cloudformation -- Infrastructure as code
     2. API Gateway        -- Application HTTP endpoint
     3. Lambda             -- Application logic 
     4. DynamoDB           -- NoSQL DB for storage
     5. DAX                -- DynamoDB accelerator for faster read access
     
+    Languages: 
+     JavaScript
+     Java
+     HTML
+     CSS
+
+## Architecture and flow: 
+    ![architecture flow diagram-one](flow-one.svg)
 
 ## Screenshots
 

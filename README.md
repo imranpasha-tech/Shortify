@@ -23,7 +23,7 @@ Therefore, loading this service as an extension the end user can do the same wor
 
 ## Architecture and flow: 
  ### Flow-one
-   ![architecture-flow-one](flow-one.svg)
+   ![architecture-flow-one](arch-flow-one.svg)
 
 ## Screenshots
 

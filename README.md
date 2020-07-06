@@ -22,7 +22,8 @@ Therefore, loading this service as an extension the end user can do the same wor
      CSS
 
 ## Architecture and flow: 
-   ![alt](flow-one.svg)
+ ### Flow-one
+   ![architecture-flow-one](flow-one.svg)
 
 ## Screenshots
 

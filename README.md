@@ -22,7 +22,7 @@ Therefore, loading this service as an extension the end user can do the same wor
      CSS
 
 ## Architecture and flow: 
-   [text](flow-one.svg)
+   ![alt](flow-one.svg)
 
 ## Screenshots
 

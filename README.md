@@ -2,7 +2,7 @@
 A Chrome and Firefox browser extension for URL shortening service deployed on AWS using serverless stack.
 
 ## Why an extension for this service? 
-It is intuitive to make this service via extension as end user do not have to move away from the webpage to another URL shortening website just for shortening a URL. It is a distraction, which is not a good thing from user interaction perspective. 
+It is intuitive to make this service via extension as end user do not have to move away from the webpage to another URL shortening website just for shortening a URL. It is a distraction, which is not intuitive from user experience perspective. 
 
 Therefore, loading this service as an extension the end user can do the same work on the same webpage with just one click.
 

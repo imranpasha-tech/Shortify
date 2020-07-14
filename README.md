@@ -22,9 +22,9 @@ Therefore, loading this service as an extension the end user can do the same wor
 
 ## Architecture and flow: 
  ### Flow-one (Creating a short URL)
-   ![architecture-flow-one](arch-flow-one.svg)
+   ![architecture-flow-one](arch-flow-two.svg)
  ### Flow-two (Fetching the original URL using short URL)
-   ![architecture-flow-two](arch-flow-two.svg)
+   ![architecture-flow-two](arch-flow-one.svg)
 
 
 ## Screenshots
